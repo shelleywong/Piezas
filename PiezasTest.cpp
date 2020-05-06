@@ -5,6 +5,9 @@
 #include <gtest/gtest.h>
 #include "Piezas.h"
 
+const int BOARD_HEIGHT = 3; // Number of rows in the board
+const int BOARD_WIDTH = 4;  // Number of columns in the board
+
 class PiezasTest : public ::testing::Test
 {
 	protected:
@@ -21,11 +24,11 @@ TEST(PiezasTest, sanityCheck)
 
 TEST(PiezasTest, check_board_constructor)
 {
-  Piezas piezas = new Piezas();
+  Piezas piezas;
   bool all_blank = true;
   for(int i = 0; i < BOARD_HEIGHT; i++){
     for(int j = 0; j < BOARD_WIDTH; j++){
-      if(board[i][j] != Blank){
+      if(piezas.board[i][j] != Blank){
         all_blank = false;
       }
     }
