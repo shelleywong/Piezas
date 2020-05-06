@@ -3,6 +3,8 @@
 ## Continuous Integration
 [![Build Status](https://travis-ci.com/shelleywong/Piezas.svg?branch=master)](https://travis-ci.com/shelleywong/Piezas)
 
+[![Coverage Status](https://coveralls.io/repos/github/shelleywong/Piezas/badge.svg?branch=master)](https://coveralls.io/github/shelleywong/Piezas?branch=master)
+
 ## Associated Enumerated Types
 `Piece` has four possible values: `X`,`O`,`Invalid`, and `Blank`
 
