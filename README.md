@@ -1,5 +1,8 @@
 # Piezas
 
+## Continuous Integration
+[![Build Status](https://travis-ci.com/shelleywong/Piezas.svg?branch=master)](https://travis-ci.com/shelleywong/Piezas)
+
 ## Associated Enumerated Types
 `Piece` has four possible values: `X`,`O`,`Invalid`, and `Blank`
 
