@@ -195,7 +195,7 @@ TEST(PiezasTest, checkerboard_tie)
 
 // O X X X
 // O O O O
-// O X X X
+// O X X X  *O wins (most in a row)
 TEST(PiezasTest, checkerboard_O_wins_row)
 {
   Piezas piezas = Piezas();
@@ -215,6 +215,9 @@ TEST(PiezasTest, checkerboard_O_wins_row)
   ASSERT_EQ(cur, O);
 }
 
+// O O X O
+// O O O X
+// X X X X  *X wins (most in a row)
 TEST(PiezasTest, checkerboard_X_wins_row)
 {
   Piezas piezas = Piezas();
@@ -231,5 +234,5 @@ TEST(PiezasTest, checkerboard_X_wins_row)
   Piece cur11 = piezas.dropPiece(2);
   Piece cur12 = piezas.dropPiece(3);
   Piece cur = piezas.gameState();
-  ASSERT_EQ(cur, O);
+  ASSERT_EQ(cur, X);
 }
