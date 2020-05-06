@@ -39,6 +39,13 @@ Piezas::Piezas()
 **/
 void Piezas::reset()
 {
+  Piece current = Blank;
+  for(int i = 0; i < BOARD_HEIGHT; i++){
+    for(int j = 0; j < BOARD_WIDTH; j++){
+      board[i][j] = current;
+    }
+  }
+  turn = X;
 }
 
 /**
@@ -60,7 +67,7 @@ Piece Piezas::dropPiece(int column)
 **/
 Piece Piezas::pieceAt(int row, int column)
 {
-    return Blank;
+    return board[row][column];
 }
 
 /**

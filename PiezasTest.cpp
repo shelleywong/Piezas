@@ -26,5 +26,6 @@ TEST(PiezasTest, check_board_reset)
 {
   Piezas piezas;
   piezas.reset();
-	ASSERT_TRUE(piezas.turn == X);
+  Piece cur = piezas.pieceAt[0][0];
+	ASSERT_EQUALS(cur, Blank);
 }
