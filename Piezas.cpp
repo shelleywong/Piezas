@@ -116,12 +116,49 @@ Piece Piezas::pieceAt(int row, int column)
 **/
 Piece Piezas::gameState()
 {
+  int x_row_max = 0;
+  int o_row_max = 0;
   for(int i = 0; i < BOARD_HEIGHT; i++){
+    int x_cur = 0;
+    int o_cur = 0;
     for(int j = 0; j < BOARD_WIDTH; j++){
       if(board[i][j] == Blank){
         return Invalid;
       }
+      else if(board[i][j] == X){
+        if(j == 0 || board[i][j-1] == X){
+          x_cur++;
+        }
+        else{
+          x_cur = 1;
+        }
+        // set current max for x
+        if(x_cur > x_row_max){
+          x_row_max = x_cur;
+        }
+      }
+      else{  // is space on board is not blank and not X, space is O
+        if(j == 0 || board[i][j-1] == O){
+          o_cur++;
+        }
+        else{
+          o_cur = 1;
+        }
+        // set current max for o
+        if(o_cur > o_row_max){
+          o_row_max = o_cur;
+        }
+      }
     }
   }
-  return Blank;
+
+  if(x_row_max > o_row_max){
+    return X;
+  }
+  else if(o_row_max > x_row_max){
+    return O;
+  }
+  else{
+    return Blank;
+  }
 }
