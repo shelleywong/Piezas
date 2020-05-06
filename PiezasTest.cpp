@@ -240,7 +240,7 @@ TEST(PiezasTest, checkerboard_X_wins_row)
 // O X O X
 // O O X X
 // O X X O  *O wins (most in a column)
-TEST(PiezasTest, checkerboard_O_wins_row)
+TEST(PiezasTest, checkerboard_O_wins_col)
 {
   Piezas piezas = Piezas();
   Piece cur1 = piezas.dropPiece(1);
