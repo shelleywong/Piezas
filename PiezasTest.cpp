@@ -236,3 +236,25 @@ TEST(PiezasTest, checkerboard_X_wins_row)
   Piece cur = piezas.gameState();
   ASSERT_EQ(cur, X);
 }
+
+// O X O X
+// O O X X
+// O X X O  *O wins (most in a column)
+TEST(PiezasTest, checkerboard_O_wins_row)
+{
+  Piezas piezas = Piezas();
+  Piece cur1 = piezas.dropPiece(1);
+  Piece cur2 = piezas.dropPiece(1);
+  Piece cur3 = piezas.dropPiece(1);
+  Piece cur4 = piezas.dropPiece(0);
+  Piece cur5 = piezas.dropPiece(2);
+  Piece cur6 = piezas.dropPiece(0);
+  Piece cur7 = piezas.dropPiece(2);
+  Piece cur8 = piezas.dropPiece(3);
+  Piece cur9 = piezas.dropPiece(3);
+  Piece cur10 = piezas.dropPiece(0);
+  Piece cur11 = piezas.dropPiece(3);
+  Piece cur12 = piezas.dropPiece(2);
+  Piece cur = piezas.gameState();
+  ASSERT_EQ(cur, O);
+}

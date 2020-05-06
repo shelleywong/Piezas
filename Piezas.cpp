@@ -204,7 +204,6 @@ Piece Piezas::gameState()
     best_o = o_col_max;
   }
 
-
   // Return Overall Winner (or tie)
   if(best_x > best_o){
     return X;
