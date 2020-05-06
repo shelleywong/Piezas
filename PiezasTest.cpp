@@ -22,10 +22,9 @@ TEST(PiezasTest, sanityCheck)
 	ASSERT_TRUE(true);
 }
 
-TEST(PiezasTest, check_board_reset)
+TEST(PiezasTest, check_board_initial)
 {
-  Piezas piezas;
-  piezas.reset();
+  Piezas piezas = new Piezas();
   Piece cur = piezas.pieceAt(0,0);
 	ASSERT_EQ(cur, Blank);
 }
