@@ -25,6 +25,20 @@ TEST(PiezasTest, sanityCheck)
 TEST(PiezasTest, check_board_initial)
 {
   Piezas piezas = Piezas();
+  bool all_blank = true;
+  for (int i = 0; i < BOARD_HEIGHT; i++){
+    for(int j = 0; j < BOARD_WIDTH; j++){
+      if(board[i][j] != Blank){
+        all_blank = false;
+      }
+    }
+  }
+	ASSERT_TRUE(all_blank);
+}
+
+TEST(PiezasTest, check_board_initial_piece)
+{
+  Piezas piezas = Piezas();
   Piece cur = piezas.pieceAt(0,0);
 	ASSERT_EQ(cur, Blank);
 }
