@@ -116,6 +116,8 @@ Piece Piezas::pieceAt(int row, int column)
 **/
 Piece Piezas::gameState()
 {
+  // Check for Row winner
+  // If any spots are blank, no need to continue (game is not over)
   int x_row_max = 0;
   int o_row_max = 0;
   for(int i = 0; i < BOARD_HEIGHT; i++){
@@ -152,10 +154,62 @@ Piece Piezas::gameState()
     }
   }
 
-  if(x_row_max > o_row_max){
+  // Check for Column Winner
+  int x_col_max = 0;
+  int o_col_max = 0;
+  for(int j = 0; j < BOARD_WIDTH; j++){
+    int x_cur = 0;
+    int o_cur = 0;
+    for(int i = 0; i < BOARD_HEIGHT; i++){
+      if(board[i][j] == X){
+        if(i == 0 || board[i-1][j] == X){
+          x_cur++;
+        }
+        else{
+          x_cur = 1;
+        }
+        // set current max for x
+        if(x_cur > x_col_max){
+          x_col_max = x_cur;
+        }
+      }
+      else{  // is space on board is not blank and not X, space is O
+        if(i == 0 || board[i-1][j] == O){
+          o_cur++;
+        }
+        else{
+          o_cur = 1;
+        }
+        // set current max for o
+        if(o_cur > o_col_max){
+          o_col_max = o_cur;
+        }
+      }
+    }
+  }
+
+  // Get best score overall for Xs and Os
+  int best_x;
+  if(x_row_max > x_col_max){
+    best_x = x_row_max;
+  }
+  else{
+    best_x = x_col_max;
+  }
+  int best_o;
+  if(o_row_max > o_col_max){
+    best_o = o_row_max;
+  }
+  else{
+    best_o = o_col_max;
+  }
+
+
+  // Return Overall Winner (or tie)
+  if(best_x > best_o){
     return X;
   }
-  else if(o_row_max > x_row_max){
+  else if(best_o > best_x){
     return O;
   }
   else{
