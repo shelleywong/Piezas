@@ -61,7 +61,33 @@ void Piezas::reset()
 **/
 Piece Piezas::dropPiece(int column)
 {
-    return Blank;
+  Piece cur;
+  // If out of bounds, return Invalid value for the Piece
+  if(column < 0 || column >= 4){
+    cur = Invalid;
+  }
+  else{
+    // Go through the rows in the chosen column.
+    // If a blank space is located, the player with current turn gets that spot
+    // If none of the spaces in that row are Blank, current player loses turn
+    bool located = false;
+    int row = 0;
+    while(!located && row < BOARD_HEIGHT){
+      cur = pieceAt(row, column);
+      if(cur == Blank){
+        board[row][column] = turn;
+        located = true;
+      }
+      row++;
+    }
+    if(row == BOARD_HEIGHT){
+      cur = Blank;
+    }
+  }
+
+  // If it was X's turn, now it's O's turn, and vice versa
+  if turn == X ? O : X;
+  return cur;
 }
 
 /**
