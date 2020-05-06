@@ -86,7 +86,7 @@ Piece Piezas::dropPiece(int column)
   }
 
   // If it was X's turn, now it's O's turn, and vice versa
-  turn == X ? O : X;
+  turn == X ? turn = O : turn = X;
   return cur;
 }
 
