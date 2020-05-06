@@ -116,5 +116,12 @@ Piece Piezas::pieceAt(int row, int column)
 **/
 Piece Piezas::gameState()
 {
-    return Blank;
+  for(int i = 0; i < BOARD_HEIGHT; i++){
+    for(int j = 0; j < BOARD_WIDTH; j++){
+      if(board[i][j] == Blank){
+        return Invalid;
+      }
+    }
+  }
+  return Blank;
 }

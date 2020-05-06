@@ -163,3 +163,10 @@ TEST(PiezasTest, check_drop_fourth_piece_same_col)
   ASSERT_EQ(cur2, O);
 	ASSERT_EQ(cur4, Blank);
 }
+
+TEST(PiezasTest, check_game_not_over)
+{
+  Piezas piezas = Piezas();
+  Piece cur = piezas.gameState();
+  ASSERT_EQ(cur, Invalid);
+}
