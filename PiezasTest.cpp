@@ -25,6 +25,6 @@ TEST(PiezasTest, sanityCheck)
 TEST(PiezasTest, check_board_initial)
 {
   Piezas piezas = Piezas();
-  Piece cur = piezas.pieceAt(1,1);
+  Piece cur = piezas.pieceAt(0,0);
 	ASSERT_EQ(cur, Blank);
 }
