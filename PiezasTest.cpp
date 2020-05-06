@@ -28,7 +28,7 @@ TEST(PiezasTest, check_board_initial)
   bool all_blank = true;
   for (int i = 0; i < BOARD_HEIGHT; i++){
     for(int j = 0; j < BOARD_WIDTH; j++){
-      if(board[i][j] != Blank){
+      if(piezas.pieceAt(i,j) != Blank){
         all_blank = false;
       }
     }
