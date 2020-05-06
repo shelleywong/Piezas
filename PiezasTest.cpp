@@ -171,6 +171,9 @@ TEST(PiezasTest, check_game_not_over)
   ASSERT_EQ(cur, Invalid);
 }
 
+// X O X O
+// O X O X
+// X O X O  *Tie, return Blank
 TEST(PiezasTest, checkerboard_tie)
 {
   Piezas piezas = Piezas();
@@ -190,6 +193,9 @@ TEST(PiezasTest, checkerboard_tie)
   ASSERT_EQ(cur, Blank);
 }
 
+// O X X X
+// O O O O
+// O X X X
 TEST(PiezasTest, checkerboard_O_wins_row)
 {
   Piezas piezas = Piezas();
@@ -205,6 +211,25 @@ TEST(PiezasTest, checkerboard_O_wins_row)
   Piece cur10 = piezas.dropPiece(3);
   Piece cur11 = piezas.dropPiece(3);
   Piece cur12 = piezas.dropPiece(0);
+  Piece cur = piezas.gameState();
+  ASSERT_EQ(cur, O);
+}
+
+TEST(PiezasTest, checkerboard_X_wins_row)
+{
+  Piezas piezas = Piezas();
+  Piece cur1 = piezas.dropPiece(0);
+  Piece cur2 = piezas.dropPiece(0);
+  Piece cur3 = piezas.dropPiece(1);
+  Piece cur4 = piezas.dropPiece(0);
+  Piece cur5 = piezas.dropPiece(2);
+  Piece cur6 = piezas.dropPiece(1);
+  Piece cur7 = piezas.dropPiece(3);
+  Piece cur8 = piezas.dropPiece(2);
+  Piece cur9 = piezas.dropPiece(3);
+  Piece cur10 = piezas.dropPiece(1);
+  Piece cur11 = piezas.dropPiece(2);
+  Piece cur12 = piezas.dropPiece(3);
   Piece cur = piezas.gameState();
   ASSERT_EQ(cur, O);
 }
