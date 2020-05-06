@@ -57,3 +57,17 @@ TEST(PiezasTest, check_board_reset)
   }
 	ASSERT_TRUE(all_blank);
 }
+
+TEST(PiezasTest, check_board_row_negative)
+{
+  Piezas piezas = Piezas();
+  Piece cur = piezas.pieceAt(-1,0);
+	ASSERT_EQ(cur, Invalid);
+}
+
+TEST(PiezasTest, check_board_col_negative)
+{
+  Piezas piezas = Piezas();
+  Piece cur = piezas.pieceAt(0,-1);
+	ASSERT_EQ(cur, Invalid);
+}
