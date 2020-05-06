@@ -71,3 +71,17 @@ TEST(PiezasTest, check_board_col_negative)
   Piece cur = piezas.pieceAt(0,-1);
 	ASSERT_EQ(cur, Invalid);
 }
+
+TEST(PiezasTest, check_board_row_out_of_bounds)
+{
+  Piezas piezas = Piezas();
+  Piece cur = piezas.pieceAt(3,0);
+	ASSERT_EQ(cur, Invalid);
+}
+
+TEST(PiezasTest, check_board_col_out_of_bounds)
+{
+  Piezas piezas = Piezas();
+  Piece cur = piezas.pieceAt(0,4);
+	ASSERT_EQ(cur, Invalid);
+}
