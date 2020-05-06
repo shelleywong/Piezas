@@ -196,7 +196,7 @@ TEST(PiezasTest, checkerboard_tie)
 // O X X X
 // O O O O
 // O X X X  *O wins (most in a row)
-TEST(PiezasTest, checkerboard_O_wins_row)
+TEST(PiezasTest, gamestate_O_wins_row)
 {
   Piezas piezas = Piezas();
   Piece cur1 = piezas.dropPiece(1);
@@ -218,7 +218,7 @@ TEST(PiezasTest, checkerboard_O_wins_row)
 // O O X O
 // O O O X
 // X X X X  *X wins (most in a row)
-TEST(PiezasTest, checkerboard_X_wins_row)
+TEST(PiezasTest, gamestate_X_wins_row)
 {
   Piezas piezas = Piezas();
   Piece cur1 = piezas.dropPiece(0);
@@ -240,7 +240,7 @@ TEST(PiezasTest, checkerboard_X_wins_row)
 // O X O X
 // O O X X
 // O X X O  *O wins (most in a column)
-TEST(PiezasTest, checkerboard_O_wins_col)
+TEST(PiezasTest, gamestate_O_wins_col)
 {
   Piezas piezas = Piezas();
   Piece cur1 = piezas.dropPiece(1);
@@ -262,7 +262,7 @@ TEST(PiezasTest, checkerboard_O_wins_col)
 // O X X O
 // O O X O
 // X O X X  *X wins (most in a column)
-TEST(PiezasTest, checkerboard_X_wins_col)
+TEST(PiezasTest, gamestate_X_wins_col)
 {
   Piezas piezas = Piezas();
   Piece cur1 = piezas.dropPiece(0);
@@ -283,8 +283,8 @@ TEST(PiezasTest, checkerboard_X_wins_col)
 
 // O X X O
 // X O X O
-// O X O X  *column tie
-TEST(PiezasTest, checkerboard_col_tie_2)
+// O X O X  *column tie (more than 1 point)
+TEST(PiezasTest, gamestate_col_tie_2)
 {
   Piezas piezas = Piezas();
   Piece cur1 = piezas.dropPiece(1);
@@ -298,6 +298,28 @@ TEST(PiezasTest, checkerboard_col_tie_2)
   Piece cur9 = piezas.dropPiece(2);
   Piece cur10 = piezas.dropPiece(0);
   Piece cur11 = piezas.dropPiece(1);
+  Piece cur12 = piezas.dropPiece(3);
+  Piece cur = piezas.gameState();
+  ASSERT_EQ(cur, Blank);
+}
+
+// X X O O
+// O O X X
+// O X X O  *column tie (2), row tie (2)
+TEST(PiezasTest, gamestate_col_and_row_tie)
+{
+  Piezas piezas = Piezas();
+  Piece cur1 = piezas.dropPiece(1);
+  Piece cur2 = piezas.dropPiece(0);
+  Piece cur3 = piezas.dropPiece(2);
+  Piece cur4 = piezas.dropPiece(3);
+  Piece cur5 = piezas.dropPiece(2);
+  Piece cur6 = piezas.dropPiece(1);
+  Piece cur7 = piezas.dropPiece(3);
+  Piece cur8 = piezas.dropPiece(0);
+  Piece cur9 = piezas.dropPiece(1);
+  Piece cur10 = piezas.dropPiece(2);
+  Piece cur11 = piezas.dropPiece(0);
   Piece cur12 = piezas.dropPiece(3);
   Piece cur = piezas.gameState();
   ASSERT_EQ(cur, Blank);
