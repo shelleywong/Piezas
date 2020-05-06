@@ -89,13 +89,13 @@ TEST(PiezasTest, check_board_col_out_of_bounds)
 TEST(PiezasTest, check_drop_piece_col_negative)
 {
   Piezas piezas = Piezas();
-  Piece cur = piezas.pieceAt(0,-1);
+  Piece cur = piezas.dropPiece(-1);
 	ASSERT_EQ(cur, Invalid);
 }
 
 TEST(PiezasTest, check_drop_piece_out_of_bounds)
 {
   Piezas piezas = Piezas();
-  Piece cur = piezas.dropPiece(0,4);
+  Piece cur = piezas.dropPiece(4);
 	ASSERT_EQ(cur, Invalid);
 }
