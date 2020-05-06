@@ -142,15 +142,24 @@ TEST(PiezasTest, check_drop_third_piece_player_X)
 	ASSERT_EQ(cur1, cur3);
 }
 
-// TEST(PiezasTest, check_drop_fourth_piece_same_col)
-// {
-//   Piezas piezas = Piezas();
-//   Piece cur1 = piezas.dropPiece(0);
-//   Piece cur2 = piezas.dropPiece(0);
-//   Piece cur3 = piezas.dropPiece(0);
-//   Piece cur4 = piezas.dropPiece(0);
-//   ASSERT_EQ(cur1, X);
-//   ASSERT_EQ(cur2, O);
-//   ASSERT_EQ(cur3, X);
-// 	ASSERT_EQ(cur4, Invalid);
-// }
+TEST(PiezasTest, check_drop_third_piece_spot_matches)
+{
+  Piezas piezas = Piezas();
+  Piece cur1 = piezas.dropPiece(0);
+  Piece cur2 = piezas.dropPiece(0);
+  Piece cur3 = piezas.dropPiece(0);
+  ASSERT_NE(cur2, cur1);
+	ASSERT_EQ(cur3, piezas.pieceAt(2,0));
+}
+
+TEST(PiezasTest, check_drop_fourth_piece_same_col)
+{
+  Piezas piezas = Piezas();
+  Piece cur1 = piezas.dropPiece(0);
+  Piece cur2 = piezas.dropPiece(0);
+  Piece cur3 = piezas.dropPiece(0);
+  Piece cur4 = piezas.dropPiece(0);
+  ASSERT_EQ(cur1, cur3);
+  ASSERT_NE(cur2, cur4);
+	ASSERT_EQ(cur4, Invalid);
+}
