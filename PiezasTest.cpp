@@ -160,6 +160,6 @@ TEST(PiezasTest, check_drop_fourth_piece_same_col)
   Piece cur3 = piezas.dropPiece(0);
   Piece cur4 = piezas.dropPiece(0);
   ASSERT_EQ(cur1, cur3);
-  ASSERT_NE(cur2, cur4);
-	ASSERT_EQ(cur4, Invalid);
+  ASSERT_EQ(cur2, O);
+	ASSERT_EQ(cur4, Blank);
 }
