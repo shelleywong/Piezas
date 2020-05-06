@@ -58,6 +58,40 @@ TEST(PiezasTest, check_board_reset)
 	ASSERT_TRUE(all_blank);
 }
 
+TEST(PiezasTest, check_x_first_play_after_reset)
+{
+  Piezas piezas = Piezas();
+  piezas.reset();
+  bool all_blank = true;
+  for (int i = 0; i < BOARD_HEIGHT; i++){
+    for(int j = 0; j < BOARD_WIDTH; j++){
+      if(piezas.pieceAt(i,j) != Blank){
+        all_blank = false;
+      }
+    }
+  }
+  Piece first = piezas.dropPiece(1);
+	ASSERT_EQ(first, X);
+}
+
+TEST(PiezasTest, check_o_second_play_after_reset)
+{
+  Piezas piezas = Piezas();
+  piezas.reset();
+  bool all_blank = true;
+  for (int i = 0; i < BOARD_HEIGHT; i++){
+    for(int j = 0; j < BOARD_WIDTH; j++){
+      if(piezas.pieceAt(i,j) != Blank){
+        all_blank = false;
+      }
+    }
+  }
+  Piece first = piezas.dropPiece(1);
+  Piece second = piezas.dropPiece(2);
+  ASSERT_EQ(first, X);
+	ASSERT_EQ(second, O);
+}
+
 TEST(PiezasTest, check_board_row_negative)
 {
   Piezas piezas = Piezas();
@@ -160,7 +194,6 @@ TEST(PiezasTest, check_drop_fourth_piece_same_col)
   Piece cur3 = piezas.dropPiece(0);
   Piece cur4 = piezas.dropPiece(0);
   ASSERT_EQ(cur1, cur3);
-  ASSERT_EQ(cur2, O);
 	ASSERT_EQ(cur4, Blank);
 }
 
