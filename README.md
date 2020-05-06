@@ -13,7 +13,7 @@ board
 
 **board** is a 2D vector of Pieces that represents the playing board
 ___
-`Piece turn` 
+`Piece turn`
 
 **turn** represents whose turn it is to place a piece (defaults to X)
 
