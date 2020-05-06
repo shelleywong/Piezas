@@ -99,3 +99,37 @@ TEST(PiezasTest, check_drop_piece_out_of_bounds)
   Piece cur = piezas.dropPiece(4);
 	ASSERT_EQ(cur, Invalid);
 }
+
+TEST(PiezasTest, check_drop_first_piece)
+{
+  Piezas piezas = Piezas();
+  Piece cur = piezas.dropPiece(0);
+  ASSERT_EQ(cur, X);
+}
+
+TEST(PiezasTest, check_drop_second_piece_same_col)
+{
+  Piezas piezas = Piezas();
+  Piece cur1 = piezas.dropPiece(0);
+  Piece cur2 = piezas.dropPiece(0);
+	ASSERT_EQ(cur2, O);
+}
+
+TEST(PiezasTest, check_drop_third_piece_same_col)
+{
+  Piezas piezas = Piezas();
+  Piece cur1 = piezas.dropPiece(0);
+  Piece cur2 = piezas.dropPiece(0);
+  Piece cur3 = piezas.dropPiece(0);
+	ASSERT_EQ(cur3, X);
+}
+
+TEST(PiezasTest, check_drop_fourth_piece_same_col)
+{
+  Piezas piezas = Piezas();
+  Piece cur1 = piezas.dropPiece(0);
+  Piece cur2 = piezas.dropPiece(0);
+  Piece cur3 = piezas.dropPiece(0);
+  Piece cur4 = piezas.dropPiece(0);
+	ASSERT_EQ(cur4, Invalid);
+}
