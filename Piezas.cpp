@@ -70,13 +70,10 @@ Piece Piezas::dropPiece(int column)
 **/
 Piece Piezas::pieceAt(int row, int column)
 {
-  Piece current;
   if(row < 0 || row >= 3 || column < 0 || column >= 4){
-    current = Invalid;
-    return current;
+    return Invalid;
   }
-  current = board[row][column];
-  return current;
+  return = board[row][column];
 }
 
 /**
