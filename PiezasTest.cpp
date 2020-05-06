@@ -26,6 +26,6 @@ TEST(PiezasTest, check_board_reset)
 {
   Piezas piezas;
   piezas.reset();
-  Piece cur = piezas.pieceAt[0][0];
+  Piece cur = piezas.pieceAt(0,0);
 	ASSERT_EQUALS(cur, Blank);
 }
