@@ -79,7 +79,9 @@ Piece Piezas::dropPiece(int column)
         cur = turn;
         located = true;
       }
-      row++;
+      else{
+        row++;
+      }
     }
     if(row == BOARD_HEIGHT){
       cur = Blank;
