@@ -76,6 +76,7 @@ Piece Piezas::dropPiece(int column)
       cur = pieceAt(row, column);
       if(cur == Blank){
         board[row][column] = turn;
+        cur = turn;
         located = true;
       }
       row++;
