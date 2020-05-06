@@ -174,7 +174,6 @@ TEST(PiezasTest, check_game_not_over)
 TEST(PiezasTest, checkerboard_tie)
 {
   Piezas piezas = Piezas();
-  Piece cur = piezas.gameState();
   Piece cur1 = piezas.dropPiece(0);
   Piece cur2 = piezas.dropPiece(0);
   Piece cur3 = piezas.dropPiece(0);
@@ -187,5 +186,7 @@ TEST(PiezasTest, checkerboard_tie)
   Piece cur10 = piezas.dropPiece(3);
   Piece cur11 = piezas.dropPiece(3);
   Piece cur12 = piezas.dropPiece(3);
+  Piece cur = piezas.gameState();
+
   ASSERT_EQ(cur, Blank);
 }
