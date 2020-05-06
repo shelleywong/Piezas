@@ -25,15 +25,16 @@ const int BOARD_WIDTH = 4;  // Number of columns in the board
 Piezas::Piezas()
 {
   //Piece current = Blank;
-  board(BOARD_HEIGHT, vector<Piece>(BOARD_WIDTH,Blank));
-  // for (int i = 0; i < BOARD_HEIGHT; i++){
-  //   board[i].resize(BOARD_WIDTH);
-  // }
-  // for (int i = 0; i < BOARD_HEIGHT; i++){
-  //   for(int j = 0; j < BOARD_WIDTH; j++){
-  //     board[i][j] = current;
-  //   }
-  // }
+  //board(BOARD_HEIGHT, std::vector<Piece>(BOARD_WIDTH,Blank));
+  board.resize(BOARD_HEIGHT);
+  for (int i = 0; i < BOARD_HEIGHT; i++){
+    board[i].resize(BOARD_WIDTH);
+  }
+  for (int i = 0; i < BOARD_HEIGHT; i++){
+    for(int j = 0; j < BOARD_WIDTH; j++){
+      board[i][j] = Blank;
+    }
+  }
   turn = X;
 }
 
