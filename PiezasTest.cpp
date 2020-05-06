@@ -129,7 +129,7 @@ TEST(PiezasTest, check_second_piece_at_after_drop)
   Piece cur1 = piezas.dropPiece(0);
   Piece cur2 = piezas.dropPiece(0);
   ASSERT_EQ(cur1, piezas.pieceAt(0,0));
-	ASSERT_EQ(cur2, piezas.pieceAt(0,1));
+	ASSERT_EQ(cur2, piezas.pieceAt(1,0));
 }
 
 // TEST(PiezasTest, check_drop_third_piece_same_col)
